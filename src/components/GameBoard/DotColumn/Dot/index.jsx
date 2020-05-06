@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateValue } from "../../../../state";
 
 import "./styles.css";
@@ -11,6 +11,13 @@ function Dot({ column }) {
     },
     dispatch,
   ] = useStateValue();
+
+  useEffect(() => {
+    console.log(column, selectedColumn, 'test')
+    if (!selectedColumn && activeDot) {
+      toggleActive(false)
+    }
+  });
 
   const inactiveColumn = selectedColumn && selectedColumn !== column;
 

@@ -19,6 +19,11 @@ export const reducer = (state, action) => {
         ...state,
         gameBoard: newGameBoard,
       };
+    case "TAKE_TURN":
+      return {
+        ...state,
+        gameBoard: action.payload,
+      }
     default:
       return state;
   }
