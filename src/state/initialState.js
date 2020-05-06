@@ -1,6 +1,7 @@
 export const initialState = {
-  activeGame: false,
-  gameboard: {
+  activeGame: true,
+  gameBoard: {
     selectedColumn: null,
+    columns: [1, 3, 5, 7],
   }
 };

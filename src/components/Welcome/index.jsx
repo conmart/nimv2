@@ -16,7 +16,6 @@ const Welcome = () => {
     console.log("instructions");
   };
 
-  console.log(activeGame);
   return (
     <div>
       <h2>Nim</h2>
