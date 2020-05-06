@@ -5,6 +5,8 @@ import { initialState } from "../../state/initialState";
 import GameBoard from "../GameBoard";
 import Button from "../Button";
 
+import "./styles.css";
+
 const Welcome = () => {
   const [{ activeGame }, dispatch] = useStateValue();
 
@@ -22,7 +24,7 @@ const Welcome = () => {
   };
 
   return (
-    <div>
+    <div className="appContainer">
       <h2>Nim</h2>
       {activeGame ? <GameBoard /> : <h5>A Mathematical Game of Strategy</h5>}
       <div>
