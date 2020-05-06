@@ -4,8 +4,6 @@ import { StateProvider } from "./state";
 import { initialState } from "./state/initialState";
 import { reducer } from "./state/reducer";
 
-import "./App.css";
-
 const App = () => (
   <StateProvider initialState={initialState} reducer={reducer}>
     <div className="App">
