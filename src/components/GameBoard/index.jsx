@@ -14,7 +14,7 @@ const GameBoard = () => {
   }
 
   const columns = gameBoard.columns.map((column, index) => (
-    <DotColumn index={index} numberOfDots={column} />
+    <DotColumn index={index} numberOfDots={column} key={index} />
   ));
 
   return (

@@ -4,12 +4,10 @@ import Dot from "./Dot";
 
 import "./styles.css";
 
-const DotColumn = ({ index, numberOfDots }) => {
-  console.log(index, numberOfDots, 'column')
-  
+const DotColumn = ({ index, numberOfDots }) => {  
   const dots = [];
   for (let i = numberOfDots; i > 0; i--) {
-    dots.push(<Dot />);
+    dots.push(<Dot column={index} key={i} />);
   }
 
   return (

@@ -1,0 +1,25 @@
+.dotContainer {
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.inactive {
+  cursor: not-allowed;
+}
+
+.dot {
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.selected {
+  background-color: #03d3fc;
+}
+
+.unavailable {
+  background-color: #808080;
+}
