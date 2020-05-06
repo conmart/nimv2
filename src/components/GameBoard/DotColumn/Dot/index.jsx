@@ -4,7 +4,7 @@ import { useStateValue } from "../../../../state";
 import "./styles.css";
 
 function Dot({ column }) {
-  const [active, toggleActive] = useState(false);
+  const [activeDot, toggleActive] = useState(false);
   const [
     {
       gameBoard: { dotsSelected, selectedColumn },
@@ -12,25 +12,33 @@ function Dot({ column }) {
     dispatch,
   ] = useStateValue();
 
-  // console.log(dotsSelected, selectedColumn);
+  const inactiveColumn = selectedColumn && selectedColumn !== column;
 
   const dotClicked = () => {
-    if (!selectedColumn || selectedColumn === column) {
-      const newDotCount = active ? dotsSelected - 1 : dotsSelected + 1;
+    if (!inactiveColumn) {
+      const newDotCount = activeDot ? dotsSelected - 1 : dotsSelected + 1;
       const newSelectedColumn = newDotCount > 0 ? column : null;
       const payload = {
         dotsSelected: newDotCount,
         selectedColumn: newSelectedColumn,
       };
       dispatch({ type: "DOT_CLICKED", payload });
-      toggleActive(!active);
+      toggleActive(!activeDot);
     }
   };
 
-  const dotStyle = active ? "dot selected" : "dot";
+  const containerModifier = inactiveColumn ? "inactive" : "";
+  const dotModifier = inactiveColumn
+    ? "unavailable"
+    : activeDot
+    ? "selected"
+    : "";
+
+  const containerStyle = `dotContainer ${containerModifier}`
+  const dotStyle = `dot ${dotModifier}`
 
   return (
-    <div className="dotContainer" onClick={dotClicked}>
+    <div className={containerStyle} onClick={dotClicked}>
       <span className={dotStyle} />
     </div>
   );
