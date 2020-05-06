@@ -4,7 +4,7 @@ export const reducer = (state, action) => {
       console.log('hit case')
       return {
         ...state,
-        welcomeScreen: action.payload,
+        activeGame: action.payload,
       };
       default:
         return state;

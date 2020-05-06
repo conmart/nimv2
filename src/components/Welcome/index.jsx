@@ -1,13 +1,14 @@
 import React from "react";
 import { useStateValue } from "../../state";
 
-import Button from "./WelcomeButton";
+import GameBoard from "../GameBoard";
+import Button from "../Button";
 
 const Welcome = () => {
-  const [{ welcomeScreen }, dispatch] = useStateValue();
+  const [{ activeGame }, dispatch] = useStateValue();
 
   const newGame = () => {
-    dispatch({ type: "NEW_GAME", payload: false });
+    dispatch({ type: "NEW_GAME", payload: true });
   };
 
   const instructions = () => {
@@ -15,19 +16,15 @@ const Welcome = () => {
     console.log("instructions");
   };
 
-  console.log(welcomeScreen);
+  console.log(activeGame);
   return (
     <div>
-      {welcomeScreen && (
-        <div>
-          <h2>Welcome to Nim</h2>
-          <h5>A Mathematical Game of Strategy</h5>
-          <div>
-            <Button onClick={newGame} text="New Game" />
-            <Button onClick={instructions} text="Instructions" />
-          </div>
-        </div>
-      )}
+      <h2>Nim</h2>
+      {activeGame ? <GameBoard /> : <h5>A Mathematical Game of Strategy</h5>}
+      <div>
+        <Button onClick={newGame} text="New Game" />
+        <Button onClick={instructions} text="Instructions" />
+      </div>
     </div>
   );
 };

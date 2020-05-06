@@ -1,5 +1,5 @@
 export const initialState = {
-  welcomeScreen: true,
+  activeGame: false,
   gameboard: {
     selectedColumn: null,
   }
