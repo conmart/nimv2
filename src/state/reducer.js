@@ -1,10 +1,7 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "NEW_GAME":
-      return {
-        ...state,
-        activeGame: action.payload,
-      };
+      return action.payload;
     case "DOT_CLICKED":
       const { gameBoard } = state;
       const {

@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateValue } from "../../state";
+import { initialState } from "../../state/initialState";
 
 import GameBoard from "../GameBoard";
 import Button from "../Button";
@@ -8,7 +9,11 @@ const Welcome = () => {
   const [{ activeGame }, dispatch] = useStateValue();
 
   const newGame = () => {
-    dispatch({ type: "NEW_GAME", payload: true });
+    const payload = {
+      ...initialState,
+      activeGame: true,
+    }
+    dispatch({ type: "NEW_GAME", payload });
   };
 
   const instructions = () => {

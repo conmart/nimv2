@@ -13,8 +13,7 @@ function Dot({ column }) {
   ] = useStateValue();
 
   useEffect(() => {
-    console.log(column, selectedColumn, 'test')
-    if (!selectedColumn && activeDot) {
+    if (selectedColumn === null && activeDot) {
       toggleActive(false)
     }
   });

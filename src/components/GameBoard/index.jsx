@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useStateValue } from "../../state";
 
 import DotColumn from "./DotColumn";
@@ -24,19 +24,32 @@ const GameBoard = () => {
       remainingDots: newRemainingDots,
       selectedColumn: null,
     };
-    dispatch({ type: "TAKE_TURN", payload: newGameBoard })
+    dispatch({ type: "TAKE_TURN", payload: newGameBoard });
   };
 
   const columns = remainingDots.map((column, index) => (
     <DotColumn index={index} numberOfDots={column} key={index} />
   ));
 
-  const invalidTurn = !dotsSelected || !selectedColumn;
+  const invalidTurn = !dotsSelected || selectedColumn === null;
+  const currentPlayer = player1Turn ? 1 : 2;
+
+  const gameOver = remainingDots.reduce((a, b) => a + b) === 0;
 
   return (
     <div>
-      <div className="columnsContainer">{columns}</div>
-      <Button disabled={invalidTurn} onClick={takeTurn} text="Nim!" />
+      {gameOver ? (
+        <div>
+          <h3>Game Over</h3>
+          <h5>Player {currentPlayer} Wins!</h5>
+        </div>
+      ) : (
+        <Fragment>
+          <div>Player {currentPlayer}'s turn</div>
+          <div className="columnsContainer">{columns}</div>
+          <Button disabled={invalidTurn} onClick={takeTurn} text="Nim!" />
+        </Fragment>
+      )}
     </div>
   );
 };

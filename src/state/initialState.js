@@ -1,5 +1,5 @@
 export const initialState = {
-  activeGame: true,
+  activeGame: false,
   gameBoard: {
     dotsSelected: 0,
     player1Turn: true,
