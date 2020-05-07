@@ -30,11 +30,12 @@ const Welcome = () => {
   const buttonsContainerStyles = cx("buttonsContainer", {
     welcomeButtons: !activeGame,
   });
+  const titleStyles = cx({ "secondaryTitle": activeGame });
 
   return (
     <div className="appContainer">
-      <h2>Nim</h2>
-      {activeGame ? <GameBoard /> : <h5>A Mathematical Game of Strategy</h5>}
+      <h1 className={titleStyles}>Nim</h1>
+      {activeGame ? <GameBoard /> : <h3>A Mathematical Game of Strategy</h3>}
       <div className={buttonsContainerStyles}>
         <Button big={!activeGame} onClick={newGame} text="New Game" />
         <Button big={!activeGame} onClick={instructions} text="How to Play" />

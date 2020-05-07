@@ -2,16 +2,23 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 50px;
+  margin: 0;
+  padding: 40px 0 20px;
+}
+
+.secondaryTitle {
+  font-size: 32px;
+}
+
 .buttonsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 25px;
 }
 
 .welcomeButtons {
   flex-direction: column;
 }
-
-/* .inGameButtons {
-
-} */
