@@ -2,6 +2,12 @@
   border-color: black;
   margin: 10px;
   cursor: pointer;
+  padding: 6px;
+  border-radius: 18px;
+  border-width: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 140px;
   /* background-color: #03d3fc; */
 }
 
@@ -21,13 +27,4 @@
   font-size: 20px;
   font-weight: 600;
   width: 200px;
-}
-
-.small {
-  padding: 6px;
-  border-radius: 18px;
-  border-width: 2px;
-  font-size: 14px;
-  font-weight: 500;
-  width: 140px;
 }

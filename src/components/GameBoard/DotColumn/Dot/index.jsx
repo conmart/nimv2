@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames/bind";
+
 import { useStateValue } from "../../../../state";
 
-import "./styles.css";
+import styles from "./styles.css";
+
+const cx = classNames.bind(styles);
 
 function Dot({ column }) {
   const [activeDot, toggleActive] = useState(false);
@@ -14,7 +18,7 @@ function Dot({ column }) {
 
   useEffect(() => {
     if (selectedColumn === null && activeDot) {
-      toggleActive(false)
+      toggleActive(false);
     }
   });
 
@@ -33,15 +37,11 @@ function Dot({ column }) {
     }
   };
 
-  const containerModifier = inactiveColumn ? "inactive" : "";
-  const dotModifier = inactiveColumn
-    ? "unavailable"
-    : activeDot
-    ? "selected"
-    : "";
-
-  const containerStyle = `dotContainer ${containerModifier}`
-  const dotStyle = `dot ${dotModifier}`
+  const containerStyle = cx("dotContainer", { inactive: inactiveColumn });
+  const dotStyle = cx("dot", {
+    unavailable: inactiveColumn,
+    selected: activeDot,
+  });
 
   return (
     <div className={containerStyle} onClick={dotClicked}>

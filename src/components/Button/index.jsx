@@ -1,10 +1,12 @@
 import React from "react";
+import classNames from "classnames/bind";
 
-import "./styles.css";
+import styles from "./styles.css";
+
+const cx = classNames.bind(styles)
 
 const Button = ({ big, disabled = false, onClick, text }) => {
-  const buttonModifier = big ? "big" : "small";
-  const buttonStyles = `button ${buttonModifier}`;
+  const buttonStyles = cx("button", { big, disabled })
 
   return (
     <button className={buttonStyles} disabled={disabled} onClick={onClick}>

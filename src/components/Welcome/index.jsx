@@ -1,11 +1,15 @@
 import React from "react";
+import classNames from "classnames/bind";
+
 import { useStateValue } from "../../state";
 import { initialState } from "../../state/initialState";
 
 import GameBoard from "../GameBoard";
 import Button from "../Button";
 
-import "./styles.css";
+import styles from "./styles.css";
+
+const cx = classNames.bind(styles);
 
 const Welcome = () => {
   const [{ activeGame }, dispatch] = useStateValue();
@@ -14,7 +18,7 @@ const Welcome = () => {
     const payload = {
       ...initialState,
       activeGame: true,
-    }
+    };
     dispatch({ type: "NEW_GAME", payload });
   };
 
@@ -23,8 +27,9 @@ const Welcome = () => {
     console.log("instructions");
   };
 
-  const buttonsContainerModifier = activeGame ? "inGameButtons" : "welcomeButtons";
-  const buttonsContainerStyles = `buttonsContainer ${buttonsContainerModifier}`;
+  const buttonsContainerStyles = cx("buttonsContainer", {
+    welcomeButtons: !activeGame,
+  });
 
   return (
     <div className="appContainer">
