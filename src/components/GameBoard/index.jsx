@@ -47,7 +47,7 @@ const GameBoard = () => {
         <Fragment>
           <div>Player {currentPlayer}'s turn</div>
           <div className="columnsContainer">{columns}</div>
-          <Button disabled={invalidTurn} onClick={takeTurn} text="Nim!" />
+          <Button big disabled={invalidTurn} onClick={takeTurn} text="Nim!" />
         </Fragment>
       )}
     </div>

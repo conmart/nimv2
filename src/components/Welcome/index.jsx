@@ -23,13 +23,16 @@ const Welcome = () => {
     console.log("instructions");
   };
 
+  const buttonsContainerModifier = activeGame ? "inGameButtons" : "welcomeButtons";
+  const buttonsContainerStyles = `buttonsContainer ${buttonsContainerModifier}`;
+
   return (
     <div className="appContainer">
       <h2>Nim</h2>
       {activeGame ? <GameBoard /> : <h5>A Mathematical Game of Strategy</h5>}
-      <div>
-        <Button onClick={newGame} text="New Game" />
-        <Button onClick={instructions} text="Instructions" />
+      <div className={buttonsContainerStyles}>
+        <Button big={!activeGame} onClick={newGame} text="New Game" />
+        <Button big={!activeGame} onClick={instructions} text="How to Play" />
       </div>
     </div>
   );

@@ -1,3 +1,17 @@
 .appContainer {
   text-align: center;
 }
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcomeButtons {
+  flex-direction: column;
+}
+
+/* .inGameButtons {
+
+} */
