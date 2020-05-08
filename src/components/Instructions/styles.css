@@ -2,7 +2,7 @@
   position: absolute;
   padding: 15px;
   margin: 15px auto;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 10px;
   background-color: white;
   width: 350px;
@@ -16,7 +16,31 @@ h4 {
   text-decoration: underline;
 }
 
-span {
+.instructionsContainer p {
+  margin: 10px 0 16px;
+}
+
+.close {
   position: absolute;
+  top: 10px;
   right: 22px;
+  width: 15px;
+  cursor: pointer;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 20px;
+  width: 3px;
+  background-color: black;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
 }
