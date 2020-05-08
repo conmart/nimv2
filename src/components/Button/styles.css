@@ -13,6 +13,11 @@
   transition: background 0.35s, color 0.35s;
 }
 
+.button:hover {
+  background-color: #fde8e9;
+  color: #0d1321;
+}
+
 .big {
   border-color: #a9fff7;
   color: #a9fff7;
@@ -32,11 +37,16 @@
 
 .nim,
 .nim:hover {
-  background-color: #c155de;
+  background-color: #ef626c;
   border-color: #0d1321;
   color: #0d1321;
   transition: none;
   width: 150px;
+}
+
+.nim.player1,
+.nim.player1:hover {
+  background-color: #a9fff7;
 }
 
 .disabled,
@@ -45,4 +55,5 @@
   background-color: #808080;
   color: #fde8e9;
   cursor: not-allowed;
+  width: 150px;
 }

@@ -50,13 +50,14 @@ const GameBoard = () => {
         </div>
       ) : (
         <Fragment>
-          <div className={playerStyles}>Player {currentPlayer}'s turn</div>
+          <div className={playerStyles}>Player {currentPlayer}'s Turn</div>
           <div className="columnsContainer">{columns}</div>
           <Button
             big
-            nim
             disabled={invalidTurn}
+            nim
             onClick={takeTurn}
+            player1={player1Turn}
             text="Nim!"
           />
         </Fragment>

@@ -23,17 +23,16 @@ const Instructions = () => {
       </p>
       <h4>Taking Your Turn</h4>
       <p>
-        During your turn you must select at least one dot, and can then select
-        as many additional dots as you would like provided they are all part of
+        On your turn you must select at least one dot, and can then select
+        as many additional dots as you would like as long as they are all part of
         the same column. Once you have your dots selected, press "Nim!" to
-        remove them from the board. Remember, whoever removes the last dot loses
-        so try to leave your opponent with only one dot.
+        remove them from the board.
       </p>
       <p>
         <a href="https://en.wikipedia.org/wiki/Nim">
           Check out the wikipedia page
         </a>{" "}
-        for more info, good luck!
+        for more info and good luck!
       </p>
       <Button onClick={closeInstructions} text="Back to Game" />
     </div>
