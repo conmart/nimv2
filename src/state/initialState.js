@@ -5,5 +5,6 @@ export const initialState = {
     player1Turn: true,
     remainingDots: [1, 3, 5, 7],
     selectedColumn: null,
-  }
+  },
+  showInstructions: false,
 };

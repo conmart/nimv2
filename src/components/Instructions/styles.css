@@ -1,0 +1,17 @@
+.instructionsContainer {
+  position: absolute;
+  padding: 15px;
+  margin: 15px auto;
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: white;
+  width: 350px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+h4 {
+  margin: 20px 0 0;
+  text-decoration: underline;
+}
