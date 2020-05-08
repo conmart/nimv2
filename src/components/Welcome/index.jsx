@@ -23,14 +23,14 @@ const Welcome = () => {
     dispatch({ type: "NEW_GAME", payload });
   };
 
-  const instructions = () => {
+  const displayInstructions = () => {
     dispatch({ type: "INSTRUCTIONS", showInstructions: true });
   };
 
   const buttonsContainerStyles = cx("buttonsContainer", {
     welcomeButtons: !activeGame,
   });
-  const titleStyles = cx({ "secondaryTitle": activeGame });
+  const titleStyles = cx({ secondaryTitle: activeGame });
 
   return (
     <div className="appContainer">
@@ -39,7 +39,11 @@ const Welcome = () => {
       {activeGame ? <GameBoard /> : <h3>A Mathematical Game of Strategy</h3>}
       <div className={buttonsContainerStyles}>
         <Button big={!activeGame} onClick={newGame} text="New Game" />
-        <Button big={!activeGame} onClick={instructions} text="How to Play" />
+        <Button
+          big={!activeGame}
+          onClick={displayInstructions}
+          text="How to Play"
+        />
       </div>
     </div>
   );

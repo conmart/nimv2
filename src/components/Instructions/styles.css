@@ -15,3 +15,8 @@ h4 {
   margin: 20px 0 0;
   text-decoration: underline;
 }
+
+span {
+  position: absolute;
+  right: 22px;
+}
