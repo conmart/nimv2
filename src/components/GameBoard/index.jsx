@@ -36,21 +36,21 @@ const GameBoard = () => {
 
   const invalidTurn = !dotsSelected || selectedColumn === null;
   const currentPlayer = player1Turn ? 1 : 2;
-
   const gameOver = remainingDots.reduce((a, b) => a + b) === 0;
 
-  const playerStyles = cx("playerTurn", { player2: !player1Turn });
+  const gameStateStyles = cx("gameState", { player2: !player1Turn, gameOver  });
+  const winnerStyles = cx({ player2: !player1Turn });
+  const gameStateText = gameOver
+    ? "Game Over"
+    : `Player ${currentPlayer}'s Turn`;
 
   return (
-    <div>
+    <div className="gameBoardContainer">
+      <div className={gameStateStyles}>{gameStateText}</div>
       {gameOver ? (
-        <div>
-          <h3>Game Over</h3>
-          <h5>Player {currentPlayer} Wins!</h5>
-        </div>
+        <h2 className={winnerStyles}>Player {currentPlayer} Wins!</h2>
       ) : (
         <Fragment>
-          <div className={playerStyles}>Player {currentPlayer}'s Turn</div>
           <div className="columnsContainer">{columns}</div>
           <Button
             big

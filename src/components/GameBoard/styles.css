@@ -1,3 +1,7 @@
+.gameBoardContainer {
+  height: 375px;
+}
+
 .columnsContainer {
   height: 205px;
   width: 300px;
@@ -7,7 +11,7 @@
   padding: 20px 0;
 }
 
-.playerTurn {
+.gameState {
   padding: 10px 0 15px;
   font-size: 20px;
   font-weight: 500;
@@ -18,4 +22,8 @@
 
 .player2 {
   color: #ef626c;
+}
+
+.gameOver {
+  color: #fde8e9;
 }
