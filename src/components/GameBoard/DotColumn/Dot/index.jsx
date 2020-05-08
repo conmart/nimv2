@@ -11,7 +11,7 @@ function Dot({ column }) {
   const [activeDot, toggleActive] = useState(false);
   const [
     {
-      gameBoard: { dotsSelected, selectedColumn },
+      gameBoard: { dotsSelected, player1Turn, selectedColumn },
     },
     dispatch,
   ] = useStateValue();
@@ -41,7 +41,10 @@ function Dot({ column }) {
   const dotStyle = cx("dot", {
     unavailable: inactiveColumn,
     selected: activeDot,
+    player2: !player1Turn,
   });
+
+  console.log(player1Turn, 'turn')
 
   return (
     <div className={containerStyle} onClick={dotClicked}>

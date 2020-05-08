@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
 import { useStateValue } from "../../state";
+import classNames from "classnames/bind";
 
 import DotColumn from "./DotColumn";
 import Button from "../Button";
 
-import "./styles.css";
+import styles from "./styles.css";
+
+const cx = classNames.bind(styles);
 
 const GameBoard = () => {
   const [
@@ -36,6 +39,8 @@ const GameBoard = () => {
 
   const gameOver = remainingDots.reduce((a, b) => a + b) === 0;
 
+  const playerStyles = cx("playerTurn", { player2: !player1Turn });
+
   return (
     <div>
       {gameOver ? (
@@ -45,9 +50,15 @@ const GameBoard = () => {
         </div>
       ) : (
         <Fragment>
-          <div>Player {currentPlayer}'s turn</div>
+          <div className={playerStyles}>Player {currentPlayer}'s turn</div>
           <div className="columnsContainer">{columns}</div>
-          <Button big disabled={invalidTurn} onClick={takeTurn} text="Nim!" />
+          <Button
+            big
+            nim
+            disabled={invalidTurn}
+            onClick={takeTurn}
+            text="Nim!"
+          />
         </Fragment>
       )}
     </div>

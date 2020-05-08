@@ -2,9 +2,9 @@
   position: absolute;
   padding: 15px;
   margin: 15px auto;
-  border: 3px solid;
+  border: 3px solid #364156;
   border-radius: 10px;
-  background-color: white;
+  background-color: #fde8e9;
   width: 350px;
   top: 0;
   left: 0;
@@ -28,13 +28,14 @@ h4 {
   cursor: pointer;
 }
 
-.close:before, .close:after {
+.close:before,
+.close:after {
   position: absolute;
   left: 15px;
-  content: ' ';
+  content: " ";
   height: 20px;
   width: 3px;
-  background-color: black;
+  background-color: #0d1321;
 }
 
 .close:before {

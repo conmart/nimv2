@@ -1,30 +1,48 @@
 .button {
-  border-color: black;
   margin: 10px;
   cursor: pointer;
   padding: 6px;
   border-radius: 18px;
   border-width: 2px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   width: 140px;
-  /* background-color: #03d3fc; */
-}
-
-/* .button:hover {
-  border-color: ;
-} */
-
-.disabled {
-  border-color: #808080;
-  cursor: not-allowed;
+  background-color: #0d1321;
+  border-color: #0d1321;
+  color: #fde8e9;
+  transition: background 0.35s, color 0.35s;
 }
 
 .big {
+  border-color: #a9fff7;
+  color: #a9fff7;
+  background-color: #0d1321;
   padding: 10px;
   border-radius: 26px;
   border-width: 3px;
   font-size: 20px;
   font-weight: 600;
   width: 200px;
+}
+
+.big:hover {
+  color: #0d1321;
+  background-color: #a9fff7;
+}
+
+.nim,
+.nim:hover {
+  background-color: #c155de;
+  border-color: #0d1321;
+  color: #0d1321;
+  transition: none;
+  width: 150px;
+}
+
+.disabled,
+.disabled:hover {
+  border-color: #808080;
+  background-color: #808080;
+  color: #fde8e9;
+  cursor: not-allowed;
 }

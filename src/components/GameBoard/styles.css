@@ -6,3 +6,16 @@
   justify-content: center;
   padding: 20px 0;
 }
+
+.playerTurn {
+  padding: 10px 0 15px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #a9fff7;
+  background-color: #0d1321;
+  margin-bottom: 7px;
+}
+
+.player2 {
+  color: #ef626c;
+}

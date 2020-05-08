@@ -31,9 +31,12 @@ const Welcome = () => {
     welcomeButtons: !activeGame,
   });
   const titleStyles = cx({ secondaryTitle: activeGame });
+  const appContainerStyles = cx("appContainer", {
+    inGameContainer: activeGame,
+  });
 
   return (
-    <div className="appContainer">
+    <div className={appContainerStyles}>
       <h1 className={titleStyles}>Nim</h1>
       {showInstructions && <Instructions />}
       {activeGame ? <GameBoard /> : <h3>A Mathematical Game of Strategy</h3>}

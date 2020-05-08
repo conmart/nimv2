@@ -1,22 +1,36 @@
 .appContainer {
   text-align: center;
+  height: 100vh;
+  background-color: #0d1321;
+}
+
+.inGameContainer {
+  background-color: #fde8e9;
 }
 
 h1 {
   font-size: 50px;
   margin: 0;
   padding: 40px 0 20px;
+  color: #c155de;
+}
+
+h3 {
+  color: #c155de;
+  font-size: 22px;
 }
 
 .secondaryTitle {
   font-size: 32px;
+  background-color: #0d1321;
+  padding: 20px;
 }
 
 .buttonsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .welcomeButtons {

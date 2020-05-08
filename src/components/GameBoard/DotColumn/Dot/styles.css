@@ -20,6 +20,10 @@
   background-color: #03d3fc;
 }
 
+.selected.player2 {
+  background-color: #ef626c;
+}
+
 .unavailable {
   background-color: #808080;
 }
