@@ -22,7 +22,7 @@ function Dot({ column }) {
     }
   });
 
-  const inactiveColumn = selectedColumn && selectedColumn !== column;
+  const inactiveColumn = selectedColumn !== null && selectedColumn !== column;
 
   const dotClicked = () => {
     if (!inactiveColumn) {
