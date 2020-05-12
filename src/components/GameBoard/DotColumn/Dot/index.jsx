@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classNames from "classnames/bind";
 
 import { useStateValue } from "../../../../state";
@@ -7,33 +7,24 @@ import styles from "./styles.css";
 
 const cx = classNames.bind(styles);
 
-function Dot({ column }) {
-  const [activeDot, toggleActive] = useState(false);
+function Dot({ column, dotIndex }) {
   const [
     {
-      gameBoard: { dotsSelected, player1Turn, selectedColumn },
+      gameBoard: { player1Turn, remainingDots },
     },
     dispatch,
   ] = useStateValue();
 
-  useEffect(() => {
-    if (selectedColumn === null && activeDot) {
-      toggleActive(false);
-    }
-  });
-
-  const inactiveColumn = selectedColumn !== null && selectedColumn !== column;
+  const activeDot = remainingDots[column][dotIndex];
+  const dotsSelected = remainingDots.flat().filter(dot => dot).length;
+  const currColumnActive = remainingDots[column].filter(dot => dot).length;
+  const inactiveColumn = dotsSelected && !currColumnActive;
 
   const dotClicked = () => {
     if (!inactiveColumn) {
-      const newDotCount = activeDot ? dotsSelected - 1 : dotsSelected + 1;
-      const newSelectedColumn = newDotCount > 0 ? column : null;
-      const payload = {
-        dotsSelected: newDotCount,
-        selectedColumn: newSelectedColumn,
-      };
-      dispatch({ type: "DOT_CLICKED", payload });
-      toggleActive(!activeDot);
+      const newRemainingDots = remainingDots.slice()
+      newRemainingDots[column][dotIndex] = !remainingDots[column][dotIndex];
+      dispatch({ type: "DOT_CLICKED", payload: newRemainingDots });
     }
   };
 
@@ -43,8 +34,6 @@ function Dot({ column }) {
     selected: activeDot,
     player2: !player1Turn,
   });
-
-  console.log(player1Turn, 'turn')
 
   return (
     <div className={containerStyle} onClick={dotClicked}>

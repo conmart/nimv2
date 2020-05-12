@@ -12,33 +12,31 @@ const cx = classNames.bind(styles);
 const GameBoard = () => {
   const [
     {
-      gameBoard: { dotsSelected, player1Turn, remainingDots, selectedColumn },
+      gameBoard: { player1Turn, remainingDots },
     },
     dispatch,
   ] = useStateValue();
 
   const takeTurn = () => {
-    const newRemainingDots = remainingDots.slice();
-    const newDotValue = remainingDots[selectedColumn] - dotsSelected;
-    newRemainingDots[selectedColumn] = newDotValue;
+    const newRemainingDots = remainingDots.map((column) =>
+      column.filter((dot) => !dot)
+    );
     const newGameBoard = {
-      dotsSelected: 0,
       player1Turn: !player1Turn,
       remainingDots: newRemainingDots,
-      selectedColumn: null,
     };
     dispatch({ type: "TAKE_TURN", payload: newGameBoard });
   };
 
   const columns = remainingDots.map((column, index) => (
-    <DotColumn index={index} numberOfDots={column} key={index} />
+    <DotColumn index={index} numberOfDots={column.length} key={index} />
   ));
 
-  const invalidTurn = !dotsSelected || selectedColumn === null;
+  const invalidTurn = !remainingDots.flat().filter((dot) => dot).length;
   const currentPlayer = player1Turn ? 1 : 2;
-  const gameOver = remainingDots.reduce((a, b) => a + b) === 0;
+  const gameOver = !remainingDots.flat().length;
 
-  const gameStateStyles = cx("gameState", { player2: !player1Turn, gameOver  });
+  const gameStateStyles = cx("gameState", { player2: !player1Turn, gameOver });
   const winnerStyles = cx({ player2: !player1Turn });
   const gameStateText = gameOver
     ? "Game Over"

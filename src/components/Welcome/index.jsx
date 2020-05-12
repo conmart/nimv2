@@ -24,7 +24,7 @@ const Welcome = () => {
   };
 
   const displayInstructions = () => {
-    dispatch({ type: "INSTRUCTIONS", showInstructions: true });
+    dispatch({ type: "INSTRUCTIONS", payload: true });
   };
 
   const buttonsContainerStyles = cx("buttonsContainer", {

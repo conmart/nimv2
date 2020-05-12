@@ -3,20 +3,15 @@ export const reducer = (state, action) => {
     case "NEW_GAME":
       return action.payload;
     case "INSTRUCTIONS":
-      console.log(action)
       return {
         ...state,
-        showInstructions: action.showInstructions,
+        showInstructions: action.payload,
       }
     case "DOT_CLICKED":
       const { gameBoard } = state;
-      const {
-        payload: { dotsSelected, selectedColumn },
-      } = action;
       const newGameBoard = {
         ...gameBoard,
-        dotsSelected,
-        selectedColumn,
+        remainingDots: action.payload,
       };
       return {
         ...state,

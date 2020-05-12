@@ -10,7 +10,7 @@ const Instructions = () => {
   const dispatch = useStateValue()[1];
 
   const closeInstructions = () => {
-    dispatch({ type: "INSTRUCTIONS", showInstructions: false })
+    dispatch({ type: "INSTRUCTIONS", payload: false })
   }
 
   return (
