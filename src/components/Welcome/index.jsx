@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 
 const Welcome = () => {
   const [{ activeGame, showInstructions }, dispatch] = useStateValue();
-
+  
   const newGame = () => {
     const payload = {
       ...initialState,

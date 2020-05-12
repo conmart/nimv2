@@ -16,14 +16,17 @@ function Dot({ column, dotIndex }) {
   ] = useStateValue();
 
   const activeDot = remainingDots[column][dotIndex];
-  const dotsSelected = remainingDots.flat().filter(dot => dot).length;
-  const currColumnActive = remainingDots[column].filter(dot => dot).length;
-  const inactiveColumn = dotsSelected && !currColumnActive;
+  const someDotSelected = remainingDots.flat().filter((dot) => dot).length;
+  const currColumnActive = remainingDots[column].filter((dot) => dot).length;
+  const inactiveColumn = someDotSelected && !currColumnActive;
 
   const dotClicked = () => {
     if (!inactiveColumn) {
-      const newRemainingDots = remainingDots.slice()
-      newRemainingDots[column][dotIndex] = !remainingDots[column][dotIndex];
+      const newRemainingDots = remainingDots.slice();
+      const newDotColumn = remainingDots[column].slice();
+      newDotColumn[dotIndex] = !newDotColumn[dotIndex];
+      newRemainingDots[column] = newDotColumn;
+      // this function was much more concise but javascript's shallow copy of nested arrays was causing issues
       dispatch({ type: "DOT_CLICKED", payload: newRemainingDots });
     }
   };
